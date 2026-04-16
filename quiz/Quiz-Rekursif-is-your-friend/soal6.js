@@ -17,11 +17,18 @@ RULES
 
 
 function palindromeRecursive(sentence) {
-    //code here - saran bikin fungsi rekursif didalam sini
-    //lalu bandingkan dengan sentence
+  if (sentence.length <= 1) {
+    return true;
+  }
 
-    if(sentence.length === 1) return sentence;
-    return sentence[sentence.length - 1] === sentence[0];
+  // Pengecekan huruf paling depan dan paling belakang
+  if (sentence[0] === sentence[sentence.length - 1]) {
+   
+    let innerSentence = sentence.slice(1, -1);
+    return palindromeRecursive(innerSentence);
+  } else {
+    return false;
+  }
 }
 
 // TEST CASES
