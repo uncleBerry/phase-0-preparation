@@ -51,30 +51,17 @@ NOTE:
 
 function squareNumber(num) {
   //code here
-
-  if(num < 3) return 'Minimal input adalah 3';
-
-  let counter = 1;
-  let result = [];
-
-  for(let i = 0; i < num; i++) {
-    result.push([]);
+  if(num < 3) return 'Minimal input adalah 3'
+  let result = []
+  let temp = 0
+  for (let i = 0; i < num; i++) {
+    let row = []
+    for(let j = 0; j < num; j++){
+      temp++; row.push(temp % 4 === 0? '#': temp % 2 === 0? 'o':'x');
+    }    
+    if(i % 2 !== 0) row.reverse();
+    result.push(row);
   }
-
-  for(let i = 0; i < num; i++) {
-    let char = ``;
-    for(let j = 0; j < num; j++) {
-    if(counter % 4 === 0) char = `#`;
-    else if(counter % 2 === 0) char = `o`;
-    else char = `x`;
-
-
-    if(i % 2 === 0) result[i].push(char);
-    else result[i].unshift(char);
-        counter++;
-    }
-  }
-  
   return result;
 }
 
@@ -95,5 +82,9 @@ console.log(squareNumber(5));
 //   [ #, x, o, x, # ],
 //   [ x, o, x, #, x ] 
 // ]
+
+/*
+
+*/
 
 console.log(squareNumber(2)); // Minimal input adalah 3
